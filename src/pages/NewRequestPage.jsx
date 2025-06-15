@@ -67,7 +67,7 @@ const NewRequestPage = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/categories"
+          "process.env.REACT_APP_API_URL + "/api/v1/categories"
         );
         setCategories(response.data.categories || []);
       } catch (err) {
@@ -102,7 +102,7 @@ const NewRequestPage = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/requests",
+        "process.env.REACT_APP_API_URL + "/api/v1/requests",
         requestData,
         {
           headers: {

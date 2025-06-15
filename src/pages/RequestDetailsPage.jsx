@@ -80,7 +80,7 @@ const RequestDetailsPage = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/requests/${requestId}`
+          `process.env.REACT_APP_API_URL + "/api/v1/requests/${requestId}`
         );
 
         if (response.data && response.data.request) {
@@ -121,7 +121,7 @@ const RequestDetailsPage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/requests/${requestId}/assign`,
+        `process.env.REACT_APP_API_URL + "/api/v1/requests/${requestId}/assign`,
         {},
         {
           headers: {
@@ -167,7 +167,7 @@ const RequestDetailsPage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/requests/${requestId}/status`,
+        `process.env.REACT_APP_API_URL + "/api/v1/requests/${requestId}/status`,
         { status: newStatus },
         {
           headers: {

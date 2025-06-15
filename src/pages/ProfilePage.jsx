@@ -32,7 +32,7 @@ const ProfilePage = () => {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/v1/auth/profile",
+          "process.env.REACT_APP_API_URL + "/api/v1/auth/profile",
           {
             headers: { Authorization: `Bearer ${authState.token}` },
           }
@@ -57,7 +57,7 @@ const ProfilePage = () => {
   const handleUpdate = async () => {
     try {
       const res = await axios.put(
-        "http://localhost:8000/api/v1/auth/profile",
+        "process.env.REACT_APP_API_URL + "/api/v1/auth/profile",
         formData,
         {
           headers: { Authorization: `Bearer ${authState.token}` },
