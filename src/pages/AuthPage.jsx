@@ -47,7 +47,7 @@ const AuthPage = () => {
 
     try {
       const response = await axios.post(
-        "process.env.REACT_APP_API_URL + "/api/v1/auth/login",
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/login`,
         {
           email,
           password,
@@ -83,7 +83,7 @@ const AuthPage = () => {
 
     try {
       const response = await axios.post(
-        "process.env.REACT_APP_API_URL + "/api/v1/auth/register",
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/register`,
         {
           name: regName,
           email: regEmail,
@@ -174,7 +174,7 @@ const AuthPage = () => {
 
                 <Stack spacing={4} mt={6}>
                   <a
-                    href="process.env.REACT_APP_API_URL + "/auth/google?role=requester"
+                    href={`${process.env.REACT_APP_API_URL}/auth/google?role=requester`}
                     style={{
                       display: "inline-block",
                       padding: "12px 20px",
@@ -190,7 +190,7 @@ const AuthPage = () => {
                   </a>
 
                   <a
-                    href="process.env.REACT_APP_API_URL + "/auth/google?role=volunteer"
+                    href={`${process.env.REACT_APP_API_URL}/auth/google?role=volunteer`}
                     style={{
                       display: "inline-block",
                       padding: "12px 20px",

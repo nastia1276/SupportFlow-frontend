@@ -41,7 +41,7 @@ const CommentSection = ({ requestId, status, volunteerId }) => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/v1/requests/${requestId}/comments`
+        `${process.env.REACT_APP_API_URL}/api/v1/requests/${requestId}/comments`
       );
 
       if (response.data && response.data.comments) {
@@ -75,7 +75,7 @@ const CommentSection = ({ requestId, status, volunteerId }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/v1/requests/${requestId}/comments`,
+        `${process.env.REACT_APP_API_URL}/api/v1/requests/${requestId}/comments`,
         { text: newComment },
         {
           headers: {

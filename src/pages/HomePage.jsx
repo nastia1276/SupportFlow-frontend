@@ -79,8 +79,8 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const [ordersRes, categoriesRes] = await Promise.all([
-          axios.get("process.env.REACT_APP_API_URL + "/api/v1/requests"),
-          axios.get("process.env.REACT_APP_API_URL + "/api/v1/categories"),
+          axios.get(`${process.env.REACT_APP_API_URL}/api/v1/requests`),
+          axios.get(`${process.env.REACT_APP_API_URL}/api/v1/categories`),
         ]);
 
         setOrders(ordersRes.data.requests || []);
@@ -160,7 +160,7 @@ const HomePage = () => {
 
     try {
       await axios.put(
-        `process.env.REACT_APP_API_URL + "/api/v1/requests/${selectedOrder.id}/assign`,
+        `${process.env.REACT_APP_API_URL}/api/v1/requests/${selectedOrder.id}/assign`,
         {},
         {
           headers: {

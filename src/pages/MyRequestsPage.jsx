@@ -68,7 +68,7 @@ const MyRequestsPage = () => {
       const fetchUserProfile = async () => {
         try {
           const response = await axios.get(
-            "process.env.REACT_APP_API_URL + "/api/v1/auth/profile",
+            `${process.env.REACT_APP_API_URL}/api/v1/auth/profile`,
             {
               headers: {
                 Authorization: `Bearer ${authState.token}`,
@@ -115,12 +115,12 @@ const MyRequestsPage = () => {
         const role = authState.user.role.toLowerCase();
 
         if (role === "requester") {
-          endpoint = "process.env.REACT_APP_API_URL + "/api/v1/myrequests";
+          endpoint = `${process.env.REACT_APP_API_URL}/api/v1/myrequests`;
         } else if (role === "volunteer") {
-          endpoint = "process.env.REACT_APP_API_URL + "/api/v1/assignedrequests";
+          endpoint = `${process.env.REACT_APP_API_URL}/api/v1/assignedrequests`;
         } else {
           console.error("Невідома роль:", role);
-          endpoint = "process.env.REACT_APP_API_URL + "/api/v1/myrequests";
+          endpoint = `${process.env.REACT_APP_API_URL}/api/v1/myrequests`;
           toast({
             title: "Увага",
             description: "Використовуємо перегляд замовлень за замовчуванням",
@@ -136,7 +136,7 @@ const MyRequestsPage = () => {
               Authorization: `Bearer ${authState.token}`,
             },
           }),
-          axios.get("process.env.REACT_APP_API_URL + "/api/v1/categories"),
+          axios.get(`${process.env.REACT_APP_API_URL}/api/v1/categories`),
         ]);
 
         const requestsData = requestsRes.data.requests || [];
@@ -169,7 +169,7 @@ const MyRequestsPage = () => {
   const handleStatusChange = async (requestId, newStatus) => {
     try {
       await axios.put(
-        `process.env.REACT_APP_API_URL + "/api/v1/requests/${requestId}/status`,
+        `${process.env.REACT_APP_API_URL}/api/v1/requests/${requestId}/status`,
         { status: newStatus },
         {
           headers: {

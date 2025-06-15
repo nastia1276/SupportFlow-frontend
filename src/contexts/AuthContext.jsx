@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       const response = await axios.get(
-        "process.env.REACT_APP_API_URL + "/api/v1/auth/profile",
+        `${process.env.REACT_APP_API_URL}/api/v1/auth/profile`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
